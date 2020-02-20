@@ -1,0 +1,11 @@
+.main-show
+  = render ('modules/header')
+  %h1 User details page
+  .main-show-content
+    %h3= @user.email
+    %h2 List of posts
+    - @posts.each do |post|
+      %a{:href => "/users/#{post.user.id}"}= post.user.email
+      %a{:href => "/posts/#{post.id}"}= post.content
+      (#{post.liked_users.count})
+  = render ('modules/footer')

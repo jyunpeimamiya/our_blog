@@ -1,0 +1,14 @@
+%header
+  .header__title
+    = link_to root_path, class: "header__title--text" do
+      boolog
+    .header__message
+      〜自分だけのブログ〜
+  .header__right
+    - if user_signed_in?
+      = link_to "List", user_path(current_user), class: "header__right--btn"
+      = link_to "Post", new_post_path, class: "header__right--btn"
+      = link_to "Logout", destroy_user_session_path, method: :delete, class: "header__right--btn"
+    - else
+      = link_to "Login", new_user_session_path, class: "header__right--btn"
+      = link_to "signup", new_user_registration_path, class: "header__right--btn"

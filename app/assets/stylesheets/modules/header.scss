@@ -1,0 +1,27 @@
+header{
+  display: flex;
+  // height: 80px;
+  background-color: whitesmoke;
+  .header__title{
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 20px;
+    padding-left: 150px;
+    a{
+      font-size: x-large;
+      font-family: fantasy;
+      text-decoration: none;
+      
+    }
+    .header__message{
+      
+    }
+  }
+  .header__right{
+    a{
+      font-size: x-large;
+      font-family: serif;
+      text-decoration: none;
+    }
+  }
+}

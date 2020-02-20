@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+.contents{
+  height: 100vh;
+  width: 100vw;
+  h1{
+
+  }
+  .content{
+    height: auto;
+    background-image: url("https://d1f5hsy4d47upe.cloudfront.net/c5/c50ee83f9744d93982cb0eda1481fb4a_t.jpeg");
+    div{
+      text-align: center;
+      ul{
+        
+        li{
+          padding-top: 15px;
+          color: whitesmoke;
+          a{
+            color: lightsalmon;
+          }
+        }
+      }
+    }
+    a{
+      i{
+      }
+    }
+  }
+}
+
+
+
+
+

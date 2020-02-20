@@ -1,0 +1,31 @@
+.signup-contents{
+  height: 100vh;
+  width: 100vw;
+  background-color: whitesmoke;
+  h2{
+  }
+  form{
+    text-align:center;
+    background-color: white;
+    height: 430px;
+    
+    .field{
+      padding-top: 15px;
+      label{
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+      input{
+        height: 50px;
+        width: 400px;
+      }
+    }
+    .actions{
+      padding-top: 30px;
+      padding-bottom: 10px;
+      input{
+        background-color: orchid;
+        
+      }
+    }
+  }
+}
