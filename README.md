@@ -25,12 +25,13 @@ Things you may want to cover:
 
 
 Name
-====
 boolog
+
 Overview
+誰にも公開されない自分だけのブログ
 
 ## Description
-
+snsで登録、いいね機能、投稿機能
 ## Demo
 
 ## VS. 
@@ -50,3 +51,15 @@ Overview
 ## Author
 
 [tcnksm](https://github.com/tcnksm)
+
+
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false|             #ニックネーム
+|email|string|null: false,unique: true|
+|encrypted_password|string|null: false|
+
+### Association
+- has_many :items, dependent: :destroy
+- has_one :address, dependent: :destroy
