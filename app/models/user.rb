@@ -3,6 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, {presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }}
+  validates :nickname,            presence: true
+  validates :encrypted_password,  presence: true
 
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
@@ -26,5 +30,10 @@ class User < ApplicationRecord
       sns.save
     end
     { user: user, sns: sns }
+  end
+
+  def self.search(search)
+    return Post.all unless search
+    Post.where('content LIKE(?)', "%#{search}%")
   end
 end

@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :move_to_index, except: [:index, :show, :search]
 
   def index
     @posts = Post.includes(:user)
@@ -17,12 +18,15 @@ class PostsController < ApplicationController
     else
       redirect_back(fallback_location: root_path)
     end
-
   end
 
   def show
     @post = Post.find(params[:id])
     @like = Like.new
+  end
+
+  def search
+    @posts = Post.search(params[:keyword]).page(params[:page]).per(5).order(created_at: 'desc')
   end
 
   def edit
@@ -44,6 +48,10 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:title, :content).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
   end
 
 end

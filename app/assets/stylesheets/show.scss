@@ -9,14 +9,51 @@
     background-image: url("https://www.pixeden.com/media/k2/galleries/93/002-subtle-light-pattern-background-texture.jpg");
     height: 400px;
     margin: 0px 90px;
-    h3{
-
+    ul{
+      margin-top: 25px;
+      li{
+        width: 150px;
+        display: inline-block;
+        border: groove;
+        height: 350px;
+        a{
+          text-decoration: none;
+        }
+        .name{
+          color: #333;
+          border: groove;
+          h3{
+            line-height: 1.5;
+            font-size: 16px;
+            text-align: center;
+          }
+        }
+      }
     }
-    h2{
-      a{
+  }
+  nav{
+    text-align:right;
+    margin-right: 80px;
+  }
+  .postManage__edit{
+    padding-left: 300px;
+    text-decoration: none;
+    color: #551A81;
+  }
+  .form{
+    text-align: center;
+    .search-form{
+      padding-top: 10px;
+      .search-input{
+        height: 50px;
+        width: 500px;
 
       }
+      .search-btn{
+        height: 50px;
+        width: 50px;
 
+      }
     }
-}
+  }
 }

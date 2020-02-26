@@ -2,7 +2,7 @@
   = render ('modules/header')
   %h1 Post details
   .main-show-content
-    %h3= @post.user.email
+    -# %h3= @post.user.email
     %h3= @post.content
     %h3
       いいね件数: #{@post.likes.count}
@@ -12,5 +12,7 @@
       = button_to 'いいね', post_likes_path(@post)
     %h2 Liked Users
     - @post.liked_users.each do |user|
-      %li= user.email
+      %li= user.nickname
+    - if user_signed_in? && current_user.id == @post.user_id
+      = link_to "編集", edit_post_path(@post.id), class: "postManage__edit"
   = render ('modules/footer')
