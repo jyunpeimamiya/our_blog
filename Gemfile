@@ -70,6 +70,7 @@ gem "omniauth-rails_csrf_protection"
 gem 'omniauth-facebook'
 gem 'font-awesome-sass'
 gem 'kaminari'
+gem "font-awesome-rails"
 group :production do
   gem 'pg'
 end

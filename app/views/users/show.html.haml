@@ -9,7 +9,7 @@
           .name
             %h3
               =post.title
-              (#{post.liked_users.count})
+              -# (#{post.liked_users.count})
           %a{:href => "/users/#{post.user.id}"}
           %a{:href => "/posts/#{post.id}"}= post.content
           

@@ -9,12 +9,13 @@ class User < ApplicationRecord
   validates :encrypted_password,  presence: true
 
   has_many :posts, dependent: :destroy
-  has_many :likes, dependent: :destroy
-  has_many :liked_posts, through: :likes, source: :post
+  has_many :likes
+  has_many :likes_posts, through: :likes, source: :post
+  # has_many :liked_posts, through: :likes, source: :post
   has_many :sns_credentials
-  def already_liked?(post)
-    self.likes.exists?(post_id: post.id)
-  end
+  # def already_liked?(post)
+  #   self.likes.exists?(post_id: post.id)
+  # end
 
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
@@ -31,6 +32,10 @@ class User < ApplicationRecord
     end
     { user: user, sns: sns }
   end
+
+  # def already_liked?(post)
+  #   self.likes.exists?(post_id: post.id)
+  # end
 
   def self.search(search)
     return Post.all unless search
